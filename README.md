@@ -1,6 +1,10 @@
-# SIMULATION-OF-MEAN-AND-VARIANCE-USING-SCILAB
+## SIMULATION-OF-MEAN-AND-VARIANCE-USING-SCILAB
+
+
 ## AIM
+
 To write a program for mean, variance and cross correlation in SCILAB and verify the output.
+
 
 ## EQUIPMENTS NEEDED
 
@@ -33,8 +37,63 @@ To write a program for mean, variance and cross correlation in SCILAB and verify
 
 ## PROGRAM
 
+clear; clc; clear;
+
+function X = f(x)
+    z = 3 * (1 - x)^2;
+    X = x * z;
+endfunction
+
+a = 0;
+b = 1;
+EX = intg(a, b, f);
+
+function Y = c(y)
+    z = 3 * (1 - y)^2;
+    Y = y * z;
+endfunction
+
+EY = intg(a, b, c);
+
+disp(EX, "i)Mean of X =");
+disp(EY, "Mean of Y =");
+
+function X = g(x)
+    z = 3 * (1 - x)^2;
+    X = x^2 * z;
+endfunction
+
+EX2 = intg(a, b, g);
+
+function Y = h(y)
+    z = 3 * (1 - y)^2;
+    Y = y^2 * z;
+endfunction
+
+EY2 = intg(a, b, h);
+
+vX2 = EX2 - (EX)^2;
+vY2 = EY2 - (EY)^2;
+
+disp(vX2, "ii)Variance of X");
+disp(vY2, "Variance of Y");
+
+x = input("type in the reference sequence=");
+y = input("type in the second sequence=");
+n1 = max(size(y)) - 1;
+n2 = max(size(x)) - 1;
+r = corr(x, y, n1);
+plot2d
+
 ## CALCULATION
+
+![517294320-2399fa1d-44b2-40f6-8cd0-33b127d88336](https://github.com/user-attachments/assets/6bbe4c9f-27e8-4489-b42d-d6b9a81ca886)
+![517294384-7f17b6a8-ea87-488a-a371-41a54386a96e](https://github.com/user-attachments/assets/f876444b-4c47-48fa-856b-b105fed61753)
 
 ## OUTPUT
 
+<img width="660" height="542" alt="517294102-d537a863-8809-425b-a436-0b3b3fa6887d" src="https://github.com/user-attachments/assets/4c325607-650d-492e-8ffa-8410d1a2596b" />
+
+
 ## RESULT
+Thus the mean , variance and cross correlation are executed in Scilab and output is verified.
